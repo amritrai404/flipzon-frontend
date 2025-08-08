@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "FlipZon - E-commerce",
   description: "E-commerce site with role-based access",
-   icons: {
+  icons: {
     icon: "/favicon.ico", // ✅ Path from public folder
   },
 };
@@ -25,10 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider>
-          <ClientLayout> {children}</ClientLayout>
-        </AuthProvider>
-        
+        <ToastProvider>
+          <AuthProvider>
+            <ClientLayout>
+              {children}
+            </ClientLayout>
+          </AuthProvider>
+        </ToastProvider>
       </body>
     </html>
   );
